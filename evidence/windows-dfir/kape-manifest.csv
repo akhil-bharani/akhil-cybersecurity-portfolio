@@ -1,0 +1,9 @@
+artifact,collection_target,interpretation,caveat
+Security.evtx,EventLogs,Logon and task events,Events may roll over or be cleared
+Microsoft-Windows-PowerShell%4Operational.evtx,EventLogs,Script block logging,Requires enabled logging
+$MFT,FileSystem,File record metadata,Deleted records can be reused
+$UsnJrnl:$J,FileSystem,File change journal,Journal may wrap
+ConsoleHost_history.txt,UserProfile,Interactive command history,Not a complete PowerShell execution record
+Recent/*.lnk,UserProfile,Shortcut target metadata,Missing target is not proof of malicious deletion
+Prefetch/*.pf,Windows,Execution-supporting metadata,Prefetch may be disabled
+Amcache.hve,Windows,Program inventory metadata,Presence not proof of execution

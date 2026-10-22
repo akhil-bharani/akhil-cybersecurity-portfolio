@@ -1,0 +1,19 @@
+timestamp_utc,source,event_id,host,details,analyst_note
+2026-10-18T08:12:04Z,Security,4624,WS-FIN-07,LogonType=10; user=FIN\maria; source=10.40.8.22,Remote interactive logon; authorized status unresolved
+2026-10-18T08:14:12Z,Sysmon,1,WS-FIN-07,ParentImage=explorer.exe; Image=powershell.exe; CommandLine=powershell -NoProfile -WindowStyle Hidden -File C:\Users\maria\AppData\Roaming\Cache\sync.ps1,PowerShell launch from user-writable path
+2026-10-18T08:14:18Z,Sysmon,11,WS-FIN-07,Image=powershell.exe; TargetFilename=C:\Users\maria\AppData\Roaming\Cache\inventory.csv,Local file creation
+2026-10-18T08:15:02Z,Sysmon,3,WS-FIN-07,Image=powershell.exe; DestinationIp=198.51.100.42; DestinationPort=443,Synthetic documentation IP; outbound connection
+2026-10-18T08:16:10Z,Security,4698,WS-FIN-07,TaskName=\Microsoft\Windows\CacheSync; TaskContent=PowerShell -File C:\Users\maria\AppData\Roaming\Cache\sync.ps1,Scheduled task created; persistence hypothesis
+2026-10-18T08:17:41Z,PowerShell,4104,WS-FIN-07,"ScriptBlockText=Get-ChildItem C:\Finance\Quarterly -Recurse | Select FullName,Length",Directory enumeration observed
+2026-10-18T08:19:33Z,Sysmon,1,WS-FIN-07,ParentImage=powershell.exe; Image=7z.exe; CommandLine=7z a C:\ProgramData\cachepack.7z C:\Finance\Quarterly\*.xlsx,Archive creation attempt; completion not proven
+2026-10-18T08:20:09Z,Sysmon,11,WS-FIN-07,Image=7z.exe; TargetFilename=C:\ProgramData\cachepack.7z,Archive artifact created
+2026-10-18T08:22:00Z,Security,4688,WS-FIN-07,NewProcessName=wevtutil.exe; CommandLine=wevtutil cl Microsoft-Windows-PowerShell/Operational,Log-clear command observed; success not proven
+2026-10-18T08:23:12Z,Security,1102,WS-FIN-07,SubjectUserName=maria; LogName=Security,Security log cleared; investigate scope
+2026-10-18T08:25:21Z,Sysmon,11,WS-FIN-07,TargetFilename=C:\Users\maria\Desktop\report-final.xlsx; Image=explorer.exe,File touched; ownership and intent unresolved
+2026-10-18T08:28:00Z,MFT,FILE,WS-FIN-07,Path=C:\Users\maria\AppData\Roaming\Cache\sync.ps1; in_use=false; mtime=2026-10-18T08:14:00Z,Deleted MFT record; not necessarily attacker cleanup
+2026-10-18T08:29:00Z,MFT,FILE,WS-FIN-07,Path=C:\ProgramData\cachepack.7z; in_use=false; mtime=2026-10-18T08:20:09Z,Deleted MFT record; recoverability unverified
+2026-10-18T08:31:00Z,LNK,ARTIFACT,WS-FIN-07,LinkPath=Recent\report-final.lnk; TargetPath=D:\Projects\retired\report-final.xlsx; target_exists=false,Orphaned shortcut; missing target does not prove deletion by attacker
+2026-10-18T08:33:00Z,USN,DELETE,WS-FIN-07,Path=C:\ProgramData\cachepack.7z; Reason=FILE_DELETE,Synthetic USN deletion record corroborates archive deletion
+2026-10-18T08:35:00Z,Prefetch,ARTIFACT,WS-FIN-07,Executable=POWERSHELL.EXE; LastRun=2026-10-18T08:14:12Z; RunCount=7,Execution corroboration; run count not solely intrusion
+2026-10-18T08:37:00Z,Amcache,ARTIFACT,WS-FIN-07,Path=C:\Tools\7z.exe; SHA1=synthetic-placeholder,Program presence; not proof of execution by itself
+2026-10-18T08:40:00Z,KAPE,COLLECTION,WS-FIN-07,"Target=KapeTriage; Modules=EvtxECmd,MFTECmd,LECmd,PECmd; acquisition=simulated",Illustrative workflow only; KAPE was not run on a real endpoint

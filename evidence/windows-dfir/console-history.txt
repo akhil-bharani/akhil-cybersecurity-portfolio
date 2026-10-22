@@ -1,0 +1,7 @@
+# SYNTHETIC ConsoleHost_history.txt excerpt; PSReadLine may be absent or incomplete
+whoami /all
+Get-LocalUser
+Get-ChildItem C:\Finance\Quarterly -Recurse | Select FullName,Length
+Get-ScheduledTask -TaskName CacheSync
+Get-Content C:\Users\maria\AppData\Roaming\Cache\sync.ps1
+# This history is not authenticated to a particular operator; timestamp correlation is limited.
