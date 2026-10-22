@@ -1,0 +1,71 @@
+{
+  "case_id": "AI-SOC-2026-041",
+  "simulation": true,
+  "pipeline": [
+    "normalize",
+    "enrich",
+    "correlate",
+    "review"
+  ],
+  "event_count": 12,
+  "input_sha256": "d211f2db52fea610847ac1b688199c6714e24af28b96ed85ac9f7e86be050d5b",
+  "findings": [
+    {
+      "principal": "svc-payments",
+      "risk_score": 90,
+      "severity": "high",
+      "actions": [
+        "AuthorizeSecurityGroupIngress",
+        "CreateAccessKey",
+        "GetSecretValue",
+        "PutBucketPolicy",
+        "StopLogging"
+      ],
+      "evidence_ids": [
+        "evt-002",
+        "evt-003",
+        "evt-004",
+        "evt-005",
+        "evt-006",
+        "evt-007"
+      ],
+      "confirmed": "Observed API actions in synthetic telemetry",
+      "unknowns": [
+        "Authorization of activity",
+        "Actor identity",
+        "Business impact"
+      ],
+      "mitre_hypotheses": [
+        "T1552.004"
+      ]
+    }
+  ],
+  "proposed_actions": [
+    {
+      "principal": "svc-payments",
+      "severity": "high",
+      "recommendations": [
+        "Verify identity and authorization",
+        "Preserve CloudTrail and related identity logs",
+        "Review credentials, sessions, and affected resources"
+      ],
+      "approval_required": true,
+      "status": "PENDING_HUMAN_REVIEW",
+      "evidence_ids": [
+        "evt-002",
+        "evt-003",
+        "evt-004",
+        "evt-005",
+        "evt-006",
+        "evt-007"
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic events",
+    "No live intelligence enrichment",
+    "No LLM inference",
+    "No autonomous response",
+    "Rule-based risk scoring is illustrative, not calibrated"
+  ]
+}

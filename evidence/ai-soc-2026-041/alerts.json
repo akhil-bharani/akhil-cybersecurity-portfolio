@@ -1,0 +1,110 @@
+[
+  {
+    "id": "evt-001",
+    "timestamp": "2026-10-20T09:00:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "ListBuckets",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-002",
+    "timestamp": "2026-10-20T09:01:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "GetSecretValue",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-003",
+    "timestamp": "2026-10-20T09:02:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "CreateAccessKey",
+    "src_ip": "198.51.100.24",
+    "result": "AccessDenied"
+  },
+  {
+    "id": "evt-004",
+    "timestamp": "2026-10-20T09:03:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "AuthorizeSecurityGroupIngress",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-005",
+    "timestamp": "2026-10-20T09:04:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "StopLogging",
+    "src_ip": "198.51.100.24",
+    "result": "AccessDenied"
+  },
+  {
+    "id": "evt-006",
+    "timestamp": "2026-10-20T09:05:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "GetSecretValue",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-007",
+    "timestamp": "2026-10-20T09:06:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "PutBucketPolicy",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-008",
+    "timestamp": "2026-10-20T09:07:00Z",
+    "source": "CloudTrail",
+    "principal": "svc-payments",
+    "action": "ListBuckets",
+    "src_ip": "198.51.100.24",
+    "result": "Success"
+  },
+  {
+    "id": "evt-009",
+    "timestamp": "2026-10-20T09:10:00Z",
+    "source": "CloudTrail",
+    "principal": "finance-reader",
+    "action": "DescribeInstances",
+    "src_ip": "203.0.113.7",
+    "result": "Success"
+  },
+  {
+    "id": "evt-010",
+    "timestamp": "2026-10-20T09:11:00Z",
+    "source": "CloudTrail",
+    "principal": "finance-reader",
+    "action": "ListBuckets",
+    "src_ip": "203.0.113.7",
+    "result": "Success"
+  },
+  {
+    "id": "evt-011",
+    "timestamp": "2026-10-20T09:12:00Z",
+    "source": "CloudTrail",
+    "principal": "finance-reader",
+    "action": "GetObject",
+    "src_ip": "203.0.113.7",
+    "result": "Success"
+  },
+  {
+    "id": "evt-012",
+    "timestamp": "2026-10-20T09:13:00Z",
+    "source": "CloudTrail",
+    "principal": "finance-reader",
+    "action": "DescribeInstances",
+    "src_ip": "203.0.113.7",
+    "result": "Success"
+  }
+]
