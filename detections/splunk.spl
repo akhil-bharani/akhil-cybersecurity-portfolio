@@ -1,0 +1,17 @@
+# SPL examples: adapt field extraction and CIM mapping to actual data sources.
+# 1) Office -> PowerShell (process lineage)
+index=endpoint sourcetype=sysmon EventCode=1 ParentImage="*\WINWORD.EXE" Image="*\powershell.exe"
+| stats earliest(_time) as first_seen values(CommandLine) as command by host user
+| convert ctime(first_seen)
+
+# 2) Identity failures followed by success, same source/destination/user
+index=windows sourcetype=WinEventLog:Security (EventCode=4625 OR EventCode=4624)
+| bin _time span=10m
+| stats count(eval(EventCode=4625)) as failures count(eval(EventCode=4624)) as successes by _time src_host host user
+| where failures>0 AND successes>0
+
+# 3) Read burst and egress must be correlated with normalized host/time in production.
+index=proxy action=POST
+| bin _time span=10m
+| stats sum(bytes_out) as outbound_bytes by _time host dest
+| where outbound_bytes>10000000

@@ -1,0 +1,13 @@
+// Illustrative YARA-L 2.0 rule; validate syntax and UDM mapping in your own Google SecOps instance.
+rule office_spawned_powershell_hunt {
+  meta:
+    author = "Akhil Bharani - synthetic portfolio"
+    description = "Office process spawning PowerShell"
+    severity = "MEDIUM"
+  events:
+    $e.metadata.event_type = "PROCESS_LAUNCH"
+    $e.principal.process.parent_process.file.full_path = /(?i).*\\WINWORD\.EXE$/
+    $e.target.process.file.full_path = /(?i).*\\powershell\.exe$/
+  condition:
+    $e
+}

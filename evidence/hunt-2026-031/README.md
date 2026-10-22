@@ -1,0 +1,1 @@
+Synthetic events. `scenario` labels are ground truth for lab evaluation only; real-world detection pipelines must not use this field. `.test` and `.example` domains are fictional. No real customer telemetry.
