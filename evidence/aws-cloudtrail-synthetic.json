@@ -1,0 +1,341 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:00:00Z",
+      "eventSource": "sts.amazonaws.com",
+      "eventName": "GetCallerIdentity",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-001",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "identity validation"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:02:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAttachedUserPolicies",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-002",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "permission discovery"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:04:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-003",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "bucket discovery"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:07:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DescribeInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-004",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "instance discovery"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:09:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "CreateAccessKey",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-005",
+      "readOnly": false,
+      "requestParameters": {},
+      "labNote": "failed persistence attempt",
+      "errorCode": "AccessDenied"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:12:00Z",
+      "eventSource": "sts.amazonaws.com",
+      "eventName": "AssumeRole",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-006",
+      "readOnly": true,
+      "requestParameters": {
+        "roleArn": "arn:aws:iam::111122223333:role/AnalyticsReadRole",
+        "roleSessionName": "lab-session"
+      },
+      "labNote": "assumed AnalyticsReadRole"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:14:00Z",
+      "eventSource": "secretsmanager.amazonaws.com",
+      "eventName": "ListSecrets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-007",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "secret discovery"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:16:00Z",
+      "eventSource": "secretsmanager.amazonaws.com",
+      "eventName": "GetSecretValue",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-008",
+      "readOnly": true,
+      "requestParameters": {
+        "secretId": "lab/analytics/reporting-db"
+      },
+      "labNote": "secret retrieval; value not logged"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:18:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "AuthorizeSecurityGroupIngress",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-009",
+      "readOnly": false,
+      "requestParameters": {
+        "groupId": "sg-0abc123lab",
+        "ipPermissions": [
+          {
+            "fromPort": 22,
+            "toPort": 22,
+            "ipProtocol": "tcp",
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ]
+      },
+      "labNote": "TCP 22 exposed globally"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:22:00Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "SendCommand",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-010",
+      "readOnly": false,
+      "requestParameters": {},
+      "labNote": "failed remote command",
+      "errorCode": "AccessDenied"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:27:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjectsV2",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-011",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "object listing"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:30:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-012",
+      "readOnly": true,
+      "requestParameters": {
+        "bucketName": "lab-analytics-export",
+        "key": "exports/customer-summary-11.csv"
+      },
+      "labNote": "data event sample; bytes unknown"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:32:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AnalyticsReadRole/lab-session",
+        "accessKeyId": "ASIAEXAMPLESESSION01"
+      },
+      "eventID": "lab-event-013",
+      "readOnly": true,
+      "requestParameters": {
+        "bucketName": "lab-analytics-export",
+        "key": "exports/customer-summary-12.csv"
+      },
+      "labNote": "second data event sample"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:35:00Z",
+      "eventSource": "cloudtrail.amazonaws.com",
+      "eventName": "StopLogging",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.17.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-014",
+      "readOnly": false,
+      "requestParameters": {},
+      "labNote": "failed attempt to impair logging",
+      "errorCode": "AccessDenied"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:40:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "GetAccessKeyLastUsed",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "203.0.113.17",
+      "userAgent": "internal-approved-client/1.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service",
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED"
+      },
+      "eventID": "lab-event-015",
+      "readOnly": true,
+      "requestParameters": {},
+      "labNote": "benign owner comparison event"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:45:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "RevokeSecurityGroupIngress",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "203.0.113.8",
+      "userAgent": "internal-approved-client/1.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/ir-responder",
+        "accessKeyId": "AKIAEXAMPLERESPONDER"
+      },
+      "eventID": "lab-event-016",
+      "readOnly": false,
+      "requestParameters": {},
+      "labNote": "containment"
+    },
+    {
+      "eventVersion": "1.09",
+      "eventTime": "2026-09-18T08:47:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "UpdateAccessKey",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "203.0.113.8",
+      "userAgent": "internal-approved-client/1.0",
+      "userIdentity": {
+        "type": "IAMUser",
+        "arn": "arn:aws:iam::111122223333:user/ir-responder",
+        "accessKeyId": "AKIAEXAMPLERESPONDER"
+      },
+      "eventID": "lab-event-017",
+      "readOnly": false,
+      "requestParameters": {
+        "accessKeyId": "AKIAEXAMPLECOMPROMISED",
+        "status": "Inactive"
+      },
+      "labNote": "key disabled"
+    }
+  ]
+}

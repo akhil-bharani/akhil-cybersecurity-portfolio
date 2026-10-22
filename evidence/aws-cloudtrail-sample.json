@@ -1,0 +1,101 @@
+{
+  "Records": [
+    {
+      "eventSource": "s3.amazonaws.com",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.x (simulated)",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "deploy-service",
+        "accessKeyId": "AKIAEXAMPLE00000001",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service"
+      },
+      "eventTime": "2026-10-15T10:02:00Z",
+      "eventName": "ListBuckets",
+      "requestParameters": {},
+      "eventID": "simulated-001"
+    },
+    {
+      "eventSource": "ec2.amazonaws.com",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.x (simulated)",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "deploy-service",
+        "accessKeyId": "AKIAEXAMPLE00000001",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service"
+      },
+      "eventTime": "2026-10-15T10:04:00Z",
+      "eventName": "DescribeInstances",
+      "requestParameters": {},
+      "eventID": "simulated-002"
+    },
+    {
+      "eventSource": "iam.amazonaws.com",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.x (simulated)",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "deploy-service",
+        "accessKeyId": "AKIAEXAMPLE00000001",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service"
+      },
+      "eventTime": "2026-10-15T10:06:00Z",
+      "eventName": "CreateAccessKey",
+      "requestParameters": {
+        "userName": "deploy-service"
+      },
+      "eventID": "simulated-003",
+      "errorCode": "AccessDenied"
+    },
+    {
+      "eventSource": "ec2.amazonaws.com",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.x (simulated)",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "deploy-service",
+        "accessKeyId": "AKIAEXAMPLE00000001",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service"
+      },
+      "eventTime": "2026-10-15T10:09:00Z",
+      "eventName": "AuthorizeSecurityGroupIngress",
+      "requestParameters": {
+        "groupId": "sg-0123456789abcdef0",
+        "ipPermissions": [
+          {
+            "ipProtocol": "tcp",
+            "fromPort": 22,
+            "toPort": 22,
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ]
+      },
+      "eventID": "simulated-004"
+    },
+    {
+      "eventSource": "ec2.amazonaws.com",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.24",
+      "userAgent": "aws-cli/2.x (simulated)",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "deploy-service",
+        "accessKeyId": "AKIAEXAMPLE00000001",
+        "arn": "arn:aws:iam::111122223333:user/deploy-service"
+      },
+      "eventTime": "2026-10-15T10:12:00Z",
+      "eventName": "DescribeSecurityGroups",
+      "requestParameters": {},
+      "eventID": "simulated-005"
+    }
+  ]
+}

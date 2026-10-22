@@ -1,28 +1,23 @@
-# Akhil Bharani — Cybersecurity Portfolio
+# Akhil Bharani — Incident Response & Threat Hunting
 
-Static, responsive personal website focused on incident response, threat hunting, cloud security and DFIR.
+Public cybersecurity portfolio focused on investigation methodology, detection engineering and cloud DFIR.
 
-## Preview locally
+**Live site:** https://akhil-bharani.github.io/akhil-cybersecurity-portfolio/  
+**LinkedIn:** https://www.linkedin.com/in/akhil-bharani-241286190
 
-Open `index.html` in a browser, or run `python3 -m http.server 8000` in this folder and visit `http://localhost:8000`.
+## Featured case study
 
-## Publish using GitHub Pages
+**[IR-2026-017: Multi-Stage AWS Identity Intrusion](projects/aws-identity-ir.md)** — synthetic multi-stage CloudTrail investigation, including role assumption, secret retrieval, public ingress, S3 reads, unsuccessful defense evasion, and evidence-based response recommendations.
 
-1. Create a public GitHub repository named `cybersecurity-portfolio`.
-2. Upload all files in this folder to the repository root (including `projects/`).
-3. Go to **Settings → Pages**. Under **Build and deployment**, select **Deploy from a branch**.
-4. Select branch **main**, folder **/(root)**, then **Save**.
-5. Your site should appear at `https://YOUR-USERNAME.github.io/cybersecurity-portfolio/` once GitHub finishes deployment.
-6. Update repository details and pin it on your GitHub profile.
+### Run locally
 
-## Next improvements
+```bash
+python3 scripts/analyze_cloudtrail.py evidence/aws-cloudtrail-synthetic.json
+python3 -m unittest discover -s tests -v
+```
 
-- Add your GitHub username and link to your profile once created.
-- Publish one completed lab with synthetic or public datasets, queries, screenshots, and a written report.
-- Replace PLANNED LAB labels only after you have evidence and deliverables.
-- Add a PDF resume download only after copying a resume you are comfortable publishing to this repository (for example `assets/resume.pdf`).
-- Review all work for confidential or employer-owned information before publishing.
+The lab uses only Python's standard library. Evidence is intentionally synthetic and is **not** derived from Cisco, Dell, or customer incidents. Other project pages are plans, not completed investigations.
 
-## Ethical disclosure
+### Evidence discipline
 
-Project outlines are **plans**, not claims of completed research. Use only authorized lab environments and sanitized or public datasets. Never upload client logs, internal reports, tokens, proprietary detections, or employer confidential information.
+The report distinguishes API observations from inferred attacker intent and does **not** claim confirmed exfiltration, persistence or host compromise without supporting telemetry.
